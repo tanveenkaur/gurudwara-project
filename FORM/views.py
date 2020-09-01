@@ -1,3 +1,4 @@
+from __future__ import unicode_literals
 
 from django.shortcuts import render
 from .models import form
@@ -35,7 +36,7 @@ def submit(request):
         bfather = request.GET['bfather']
         baddress = request.GET['baddress']
         name = request.GET['name']
-        date = request.GET['date']
+        date = request.GET['date']  
         id = request.GET['id']
         rdate = request.GET['rdate']
         hello = form (gname = gname , gfather = gfather , bname = bname , gaddress = gaddress , bfather = bfather ,
