@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<style>
+  * {
+      margin: 0;
+      padding: 0;
+
+
+    }
+#start{
+    font-size : 30px;
+    font-weight : normal;
+    text-align : center;
+    background:#D4B996FF ;
+    padding-top:50px;
+    margin-top : 40px;
+    padding-bottom : 20px;
+
+   }
+   .navbar{
+     background: #A07855FF	;
+
+   }
+   .kk{
+     background:#D4B996FF ;
+
+   }
+   h3, .gname,.address,.gfather{
+     margin-left : 50px;
+     margin-top : 30px;
+   }
+   ul li a{
+     color : black;
+
+   }
+   ul li .link2{
+     margin-right : 20px;
+     left: 80%;
+     position: absolute;
+   }
+
+ul li a img {
+  width : 60px;
+  height : 30px;
+}
+.kk{
+  margin-top:0px;
+  padding-top:0px;
+
+}
+.line{
+     width:22%;
+       height:2px;
+       background-color: #755139FF;
+       position: absolute;
+       left:40%;
+
+}
+</style>
+<body>
+  <nav class="navbar navbar-expand-sm fixed-top ">
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      <a class="nav-link" href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/d/d2/Ek_onkar.svg">
+        </a>
+        </li>
+    <li class="nav-item">
+      <a class="nav-link link1" href="{% url 'index' %}">GURUDWARA SAHIB SHAHEED BHAI MATI DASS JI(Regd.)</a>
+    </li>
+   <li class="nav-item">
+      <a class="nav-link link2" href="{% url 'search' %}">Search</a>
+    </li>
+
+  </ul>
+</nav>
+<div class="kk">
+<div id ="start">GURUDWARA SAHIB SHAHEED BHAI MATI DASS JI(Regd.)</div>
+<div class="line"></div>
+
+
+<form method="GET" action="{% url 'update'  %}" enctype="multipart/form-data">
+{% csrf_token %}
+<input type="hidden" name="id" value="{{form.id}}">
+<h3>Groom</h3>
+<div class ="row">
+  <div class="col-md-6">
+<div class="gname">
+Full Name : &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="text" name="gname" value="{{form.gname}}" required="true" >
+</div>
+</div>
+<div class="col-md-6">
+<div class="gfather">
+Father's Name : <input type="text" name="gfather" value="{{form.gfather}}" required="true">
+</div>
+  </div>
+  </div>
+<br>
+<br>
+<div class="address">
+Address : <br><input cols="40" type="text" name="gaddress" value="{{form.gaddress}}" size="100" required="true"></input>
+</div>
+<br>
+<br>
+<br>
+
+<h3>Bride</h3>
+<div class ="row">
+  <div class="col-md-6">
+<div class="gname">
+Full Name : &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <input type="text" name="bname" value="{{form.bname}}" required="true">
+</div>
+</div>
+<div class="col-md-6">
+  <div class="gname">
+
+Father's Name : <input type="text" name="bfather" value="{{form.bfather}}" required="true">
+</div>
+</div>
+</div>
+<br>
+<div class="address">
+<br>Address :<br> <input type="text" name="baddress" size="100" value="{{form.baddress}}" required="true">
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="gname">
+Bhaiji's Name : &nbsp&nbsp&nbsp <input type="text" name="name" value="{{form.name}}" required="true">
+</div>
+<br>
+<br>
+<div class="gname">
+
+Date Of Marriage: <input type="text" id="date" name="date" value="{{form.date}}" required="true">
+</div>
+<br>
+<br>
+<div class="gname">
+Registration Date: <input  type="text" id="rdate" name="rdate" value="{{form.rdate}}" required="true">
+</div>
+<br>
+<br>
+<div class="gname">
+<input type="submit" value="Update" class="btn btn-secondary btn-lg">
+<br>
+<br>
+<br>
+</div>
+</form>
+</div>
+</body>
+</html>

@@ -48,6 +48,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.contrib.messages.middleware.MessageMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
 ]
 
 ROOT_URLCONF = 'MGC.urls'
@@ -63,6 +65,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.contrib.messages.context_processors.messages',
+
             ],
         },
     },
@@ -77,7 +81,7 @@ WSGI_APPLICATION = 'MGC.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'MGCdb',
+        'NAME': 'MGCC',
         'USER': 'postgres',
         'PASSWORD' : 'abhijeet13@',
         'HOST' : 'localhost',
@@ -118,6 +122,12 @@ USE_L10N = False
 
 DATE_FORMAT = 'd-m-Y'
 USE_TZ = True
+
+from django.contrib.messages import constants as messages
+MESSAGE_TAGS = {
+    messages.SUCCESS: 'success'
+
+}
 
 
 # Static files (CSS, JavaScript, Images)

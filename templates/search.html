@@ -169,7 +169,9 @@ Date Of Marriage: <input type="date" id="date" name="date">
 <th> Bride's Address </th>
 <th> Date of Marriage </th>
 <th> Registration Date </th>
-<th> Link </th>
+<th> Download </th>
+<th> Update</th>
+<th> Delete</th>
 </tr>
 
 {% for form in forms %}
@@ -197,7 +199,20 @@ Date Of Marriage: <input type="date" id="date" name="date">
 <input type="hidden" name="rdate" value="{{form.rdate}}">
 
 <td><input type="submit" value="Download" ></td>
+
 </form>
+<form method="GET" action="{% url 'edit' form.id %}" enctype="multipart/form-data">
+{% csrf_token %}
+<td><input type="submit" value="Update" ></td>
+</form>
+
+<form method="GET" action="{% url 'delete' form.id %}" enctype="multipart/form-data">
+{% csrf_token %}
+
+<td><input type="submit" value="Delete" ></td>
+
+</form>
+
 
 <!--<form method="GET" action={% url 'index' %} enctype="multipart/form-data">
 {% csrf_token %}
@@ -221,8 +236,8 @@ Date Of Marriage: <input type="date" id="date" name="date">
 
 {% else %}
 <div class="row">
-<div class="col=-md-6">
-<p id="no">  NO DATA AVAILABLE </p>
+<div class="col-md-6">
+<p id="no">  NO DATA AVAILABLE , PLEASE REFRESH </p>
   </div>
   </div>
   {% endif %}

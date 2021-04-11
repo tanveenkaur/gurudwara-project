@@ -1,8 +1,11 @@
+
 <!DOCTYPE html>
 <html>
 <head>
    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 </head>
 <style>
   * {
@@ -80,7 +83,7 @@ ul li a img {
 <div class="kk">
 <div id ="start">GURUDWARA SAHIB SHAHEED BHAI MATI DASS JI(Regd.)</div>
 <div class="line"></div>
-
+{% include '_alerts.html' %}
 
 <form method="POST" action={% url 'submit' %} enctype="multipart/form-data">
 {% csrf_token %}
@@ -93,7 +96,7 @@ Full Name : &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="text" name="gname" requir
 </div>
 </div>
 <div class="col-md-6">
-  <div class="gfather">
+<div class="gfather">
 Father's Name : <input type="text" name="gfather" required="true">
 </div>
   </div>
@@ -123,7 +126,7 @@ Father's Name : <input type="text" name="bfather" required="true">
 </div>
 <br>
 <div class="address">
-<br>Address :<br> <textarea cols="40" rows="10" name="baddress" required="true"></textarea>
+<br>Address :<br> <textarea cols="40" rows="10" name="baddress"  required="true"></textarea>
 </div>
 <br>
 <br>
@@ -154,5 +157,20 @@ Registration Date: <input  type="date" id="rdate" name="rdate" required="true">
 </div>
 </form>
 </div>
+<script>
+/*function myFunction() {
+  setTimeout(function(){
+     $('#message').hide();
+   },1);
+ }*/
+ $(document).ready(function(){
+   $("#bb").hover(function(){
+     $("#message").hide();
+   });
+ });
+
+
+</script>
+
 </body>
 </html>
